@@ -6,6 +6,8 @@ import com.arquitetura.hexagonal.core.domain.Usuario;
 import com.arquitetura.hexagonal.core.ports.out.UsuarioRepositoryPort;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UsuarioRepositoryAdapter implements UsuarioRepositoryPort {
 
@@ -21,5 +23,10 @@ public class UsuarioRepositoryAdapter implements UsuarioRepositoryPort {
     public Usuario create(Usuario usuario) {
         UsuarioEntity entity = converter.toEntity(usuario);
         return converter.toDomain(usuarioRepository.save(entity));
+    }
+
+    @Override
+    public List<Usuario> findAll() {
+        return converter.toDomainList(usuarioRepository.findAll());
     }
 }

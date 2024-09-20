@@ -5,6 +5,8 @@ import com.arquitetura.hexagonal.adapters.entity.UsuarioEntity;
 import com.arquitetura.hexagonal.core.domain.Usuario;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UsuarioConverter {
 
@@ -22,5 +24,13 @@ public class UsuarioConverter {
 
     public Usuario toDomain(UsuarioEntity entity) {
         return new Usuario(entity.getId(), entity.getNome(), entity.getEmail());
+    }
+
+    public List<Usuario> toDomainList(List<UsuarioEntity> all) {
+        return all.stream().map(this::toDomain).toList();
+    }
+
+    public List<UsuarioDTO> toDtoList(List<Usuario> all) {
+        return all.stream().map(this::toDto).toList();
     }
 }

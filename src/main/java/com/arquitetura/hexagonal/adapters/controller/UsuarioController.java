@@ -6,6 +6,8 @@ import com.arquitetura.hexagonal.core.ports.in.UsuarioServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -22,5 +24,11 @@ public class UsuarioController {
     @ResponseStatus(HttpStatus.OK)
     public UsuarioDTO salvar(@RequestBody UsuarioDTO dto){
       return converter.toDto(usuarioServicePort.salvar(converter.toDomain(dto)));
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<UsuarioDTO> listar(){
+        return converter.toDtoList(usuarioServicePort.listar());
     }
 }
