@@ -2,8 +2,7 @@ package com.arquitetura.hexagonal.adapters.controller;
 
 import com.arquitetura.hexagonal.adapters.converter.UsuarioConverter;
 import com.arquitetura.hexagonal.adapters.dto.UsuarioDTO;
-import com.arquitetura.hexagonal.core.domain.Usuario;
-import com.arquitetura.hexagonal.core.ports.UsuarioServicePort;
+import com.arquitetura.hexagonal.core.ports.in.UsuarioServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.arquitetura.hexagonal.core.ports;
+package com.arquitetura.hexagonal.core.ports.in;
 
 import com.arquitetura.hexagonal.core.domain.Usuario;
 

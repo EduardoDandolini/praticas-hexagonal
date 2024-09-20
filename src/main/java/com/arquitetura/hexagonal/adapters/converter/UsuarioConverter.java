@@ -1,6 +1,7 @@
 package com.arquitetura.hexagonal.adapters.converter;
 
 import com.arquitetura.hexagonal.adapters.dto.UsuarioDTO;
+import com.arquitetura.hexagonal.adapters.entity.UsuarioEntity;
 import com.arquitetura.hexagonal.core.domain.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +14,13 @@ public class UsuarioConverter {
 
     public UsuarioDTO toDto(Usuario domain) {
         return new UsuarioDTO(domain.getId(), domain.getNome(), domain.getEmail());
+    }
+
+    public UsuarioEntity toEntity(Usuario domain) {
+        return new UsuarioEntity(domain.getEmail(), domain.getId(), domain.getNome());
+    }
+
+    public Usuario toDomain(UsuarioEntity entity) {
+        return new Usuario(entity.getId(), entity.getNome(), entity.getEmail());
     }
 }
